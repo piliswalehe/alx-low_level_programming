@@ -7,12 +7,12 @@
 int main(void)
 {
 	char alphabets = 'a';
-	char ALPHABET = 'A';
+	char ALPHABETS = 'A';
 
 	while (alphabets <= 'z')
 	{
 		putchar(alphabets);
-		aplhabets++;
+		alphabets++;
 	}
 	while (ALPHABETS <= 'Z')
 	{
