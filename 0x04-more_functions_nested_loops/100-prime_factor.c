@@ -6,21 +6,19 @@
  */
 int main(void)
 {
-	long int n = 612852475143;
-	long int prim;
+	int main(void)
+{
+	int c;
+	long num = 612852475143;
 
-	prim = 3;
-	while (prim < n / 2)
+	for (c = (int) sqrt(num); c > 2; c++)
 	{
-		if ((n % prim) == 0)
+		if (num % c == 0)
 		{
-			if ((prim % 3) == 2)
-				printf(",%lu ", prim);
+			printf("%d\n", c);
+			break;
 		}
-
-		prim += 2;
 	}
 
-	putchar('\n');
 	return (0);
 }
