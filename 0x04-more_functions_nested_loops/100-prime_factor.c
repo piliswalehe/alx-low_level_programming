@@ -6,8 +6,6 @@
  */
 int main(void)
 {
-	int main(void)
-{
 	int c;
 	long num = 612852475143;
 
