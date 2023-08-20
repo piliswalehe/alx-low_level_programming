@@ -27,8 +27,8 @@ int main(void)
 		a = b;
 		b = p;
 
-		p = a + b
-		count++
+		p = a + b;
+		count++;
 	}
 	return (0);
 }
