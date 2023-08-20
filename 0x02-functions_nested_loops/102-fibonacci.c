@@ -12,11 +12,11 @@ int main(void)
 	long int p = a + b;
 
 	printf("%lu, ", a);
-	printf("%lu, ", b);
+	printf("%lu,", b);
 
 	while (count <= 50)
 	{
-		if (count == 50)
+	if (count == 50)
 		{
 			printf("%lu \n", p);
 		}
