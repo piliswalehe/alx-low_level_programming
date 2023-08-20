@@ -2,7 +2,7 @@
 
 /**
  * main - prints the first 98 fibonacci numbers
- *          starts with 1 and 2 
+ * 
  * Return: Always 0
  */
 int main(void)
@@ -16,19 +16,19 @@ int main(void)
 
 	while (count <= 98)
 	{
-	if (count == 98)
-	{
-		printf("%lu\n", p);
-	}
-	else
-	{
-		printf("%lu, ", p);
-	}
-	a = b;
-	b = p;
-
-	p = a + b;
-	count++;
+		p = a + b;
+		if (count == 98)
+		{
+			printf("%lu\n", p);
+		}
+		else
+		{
+			printf("%lu, ", p);
+		}
+		a = b;
+		b = p;
+		
+		count++;
 	}
 	return (0);
 }
