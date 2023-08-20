@@ -7,14 +7,14 @@
  */
 int main(void)
 {
-	int count = 3;
+	int count = 0;
 	long int a = 1, b = 2;
 	long int p = a + b;
 
 	printf("%lu, ", a);
 	printf("%lu, ", b);
 
-	while (count <= 98)
+	while (count < 98)
 	{
 		p = a + b;
 		if (count == 98)
