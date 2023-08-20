@@ -41,7 +41,7 @@ int main(void)
 
 		a_half1 = b_half1;
 		a_half2 = b_half2;
-		a_half1 = half1;
+		b_half1 = half1;
 		b_half2 = half2;
 	}
 	printf("\n");
