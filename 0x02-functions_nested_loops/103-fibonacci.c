@@ -10,9 +10,9 @@ int main(void)
 	int a = 1, b = 2;
 	long int sum;
 
-	while (sum <= 4000000)
+	while (a <= 4000000)
 	{
-	if (b % 2 == 0)
+	if (a % 2 == 0)
 	{
 		sum = a + b;
 	}
