@@ -13,10 +13,10 @@ int main(void)
 	printf("%lu, ", a);
 	printf("%lu, ", b);
 
-	while (count < 92)
+	while (count < 89)
 	{
 		p = a + b;
-		if (count == 92)
+		if (count == 89)
 		{
 			printf("%lu\n", p);
 		}
