@@ -2,7 +2,6 @@
 
 /**
  * main - prints the first 98 fibonacci numbers
- * 
  * Return: Always 0
  */
 int main(void)
@@ -14,10 +13,10 @@ int main(void)
 	printf("%lu, ", a);
 	printf("%lu, ", b);
 
-	while (count < 98)
+	while (count < 92)
 	{
 		p = a + b;
-		if (count == 98)
+		if (count == 92)
 		{
 			printf("%lu\n", p);
 		}
@@ -27,7 +26,6 @@ int main(void)
 		}
 		a = b;
 		b = p;
-		
 		count++;
 	}
 	return (0);
