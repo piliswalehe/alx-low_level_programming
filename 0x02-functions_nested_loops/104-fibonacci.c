@@ -17,7 +17,7 @@ int main(void)
 		printf("%lu, ", sum);
 
 		a = b;
-		b = sum
+		b = sum;
 	}
 
 	a_half1 = a / 10000000000;
