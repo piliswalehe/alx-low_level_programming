@@ -3,10 +3,9 @@
 
 /**
  * _strchr - function that locates a string
- * @s: input pointer
+ * @s: input string
  * @c: input character
- *
- * Return: Always (0)
+ * Return: pointer if character is c and null if no character
  */
 char *_strchr(char *s, char c)
 {
@@ -16,7 +15,7 @@ char *_strchr(char *s, char c)
 	{
 		if (s[a] == c)
 		{
-			return (&s[a]);
+			return (s[a]);
 		}
 	}
 	return (NULL);
