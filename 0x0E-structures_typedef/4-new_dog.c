@@ -9,38 +9,31 @@
  * Return: pointer to a new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
-{
-	unsigned init nl, ol, i;
-	dog_t *dog;
-	
-	if (name == NULL || owner == NULL)
-		return (NULL);
-	dog = malloc(sizeof(dog_t));
-	if (dog == NULL)
-		return (NULL);
-	for (nl = 0; name[n1]; nl++)
-		;
-	nl++;
-	dog->name = malloc(nl * sizeof(char));
-	if (dog->name == NULL)
 	{
-		free(dog);
-		return (NULL);
-	}
-	for (i = 0; i < nl; i++)
-		dog->name[i] = name[i];
-	dog->age = age;
-	for (ol = 0; owner[ol]; ol++)
+	int nlen, olen, i;
+	dog_t *doggy;
+
+	nlen = olen = 0;
+	while (name[nlen++])
 		;
-	ol++;
-	dog->owner = malloc(ol * sizeof(char));
-	if (dog->owner == NULL)
-	{
-		free(dog->name);
-		free(dog);
+	while (owner[olen++])
+		;
+	doggy = malloc(sizeof(dog_t));
+	if (doggy == NULL)
 		return (NULL);
-	}
-	for (i = 0; i < ol; i++)
-		dog->owner[i] = owner[i];
-	return (dog);
+
+	doggy->name = malloc(nlen * sizeof(doggy->name));
+	if (doggy == NULL)
+		return (NULL);
+	for (i = 0; i < nlen; i++)
+		doggy->name[i] = name[i];
+
+	doggy->age = age;
+
+	doggy->owner = malloc(olen * sizeof(doggy->owner));
+	if (doggy == NULL)
+		return (NULL);
+	for (i = 0; i < olen; i++)
+		doggy->owner[i] = owner[i];
+	return (doggy);
 }
