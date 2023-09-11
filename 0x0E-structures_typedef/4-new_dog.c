@@ -2,14 +2,13 @@
 #include <stdlib.h>
 /**
  * new_dog - creates a new dog
- * @d: pointer to struct
  * @name: name of the dog
  * @age: age of the dog
  * @owner: owner of the dog
  * Return: pointer to a new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
-	{
+{
 	int nlen, olen, i;
 	dog_t *doggy;
 
