@@ -1,8 +1,8 @@
 #ifndef _MAIN_
 #define _MAIN_
 
-int _putchar(char c);
 unsigned int binary_to_uint(unsigned long int n);
+int _putchar(char c);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
 int set_bit(unsigned long int *n, unsigned int index);
