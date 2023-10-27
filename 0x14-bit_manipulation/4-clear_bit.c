@@ -6,15 +6,15 @@
  * @index: index
  * Return: 1 if it worked, or -1 if an error occurred
  */
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
-        unsigned int a;
+	unsigned int a;
 
-        if (index > 64)
-                return (-1);
-        a = 1 << index;
+	if (index > 64)
+		return (-1);
+	a = 1 << index;
 
 	*n ^= a;
-        *n &= a;
-        return (1);
+	*n &= a;
+	return (1);
 }
