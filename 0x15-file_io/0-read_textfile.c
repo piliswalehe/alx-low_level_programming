@@ -12,14 +12,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int read_bytes, write_bytes;
 	char *buffers;
 
-	if (filename == NULL)
+	if (filename == NULL || letters == NULL)
 		return (0);
 	buffers = malloc(sizeof(char) * (letters));
 	if (buffers == NULL)
 		return (0);
 
-	nfile = open(filename, O_RDONLY);
+	nfile = open(filename, 0_RD0NLY);
 	if (nfile == -1)
+		free (buffers);
 		return (0);
 
 	read_bytes = read(nfile, buffers, letters);
