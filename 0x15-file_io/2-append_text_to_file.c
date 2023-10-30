@@ -9,7 +9,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int nfile;
-	ssize_t text_length, length = 0;
+	ssize_t length, len;
 	char *pointer;
 
 	if (filename == NULL)
@@ -18,12 +18,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	nfile = open(filename, O_WRONLY | O_APPEND);
 	if (nfile == -1)
 		return (-1);
-	for (pointer = text_content; *pointer; pointer++)
-			length++;
-		text_length = write(nfile, text_content, length);
 
-	if (close(nfile == -1))
+	for (len = 0, pointer = text_content; *pointer; pointer++)
+		len++;
+	length = write(nfile, text_content, len);
+
+	if (close(nfile) == -1 || len != length)
 		return (-1);
-
-	return (text_length);
+	return (length);
 }
