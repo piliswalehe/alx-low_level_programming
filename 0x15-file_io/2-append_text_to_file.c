@@ -14,18 +14,15 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
-	if (text_content == NULL)
-		return (1);
+
 	nfile = open(filename, O_WRONLY | O_APPEND);
 	if (nfile == -1)
 		return (-1);
-	if (text_content != NULL)
-	{
-		for (pointer = text_content; *pointer; pointer++)
+	for (pointer = text_content; *pointer; pointer++)
 			length++;
 		text_length = write(nfile, text_content, length);
-	}
-	if (close(nfile == -1) || length != text_length)
+
+	if (close(nfile == -1))
 		return (-1);
 
 	return (text_length);
