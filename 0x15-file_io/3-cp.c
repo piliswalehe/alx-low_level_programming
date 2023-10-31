@@ -7,11 +7,11 @@
 
 /**close__errorcheck - closes a file descriptor and prints an error message
  *
- * @f_d: file descriptor to close
+ * @fd: file descriptor to close
  *
  * Return: 0 on success, -1 on failure
  */
-int close_errorcheck(int f_d)
+int close_errorcheck(int fd)
 {
 	int error;
 
