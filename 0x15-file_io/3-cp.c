@@ -7,7 +7,7 @@
 
 /**close__errorcheck - closes a file descriptor and prints an error message
  *
- * @file_descriptor: file descriptor to close
+ * @f_d: file descriptor to close
  *
  * Return: 0 on success, -1 on failure
  */
@@ -107,7 +107,7 @@ int main(int ac, char *av[])
 	}
 	while (lenroad == 1024);
 	error = close_errorcheck(file_from);
-	err += close_errorcheck(file_to);
+	error += close_errorcheck(file_to);
 	if (error != 0)
 		return (100);
 	return (0);
