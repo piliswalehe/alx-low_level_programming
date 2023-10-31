@@ -15,7 +15,7 @@ int close_errorcheck(int fd)
 {
 	int error;
 
-	error = close(f_d);
+	error = close(fd);
 	if (error == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
@@ -50,7 +50,7 @@ int write_error(int f_d1, int f_d2, char *filename)
  *
  * Return: 98
  */
-int read_error(int fd1, int fd2, char *filename)
+int read_error(int f_d1, int f_d2, char *filename)
 {
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 	close_errorcheck(f_d1);
@@ -81,7 +81,7 @@ int main(int ac, char *av[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (97);
 	}
-	file_from = open(av[1], O_RDONLY);
+	from_file = open(av[1], O_RDONLY);
 	if (from_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
@@ -98,7 +98,7 @@ int main(int ac, char *av[])
 	}
 	do 
 	{
-		lenroad = read(from_file, buff 1024);
+		lenroad = read(from_file, buff[1024]);
 		if (lenroad == -1)
 			return (read_error(from_file, to_file, av[1]));
 		lenwidth = write(to_file, buff, lenroad);
@@ -106,8 +106,8 @@ int main(int ac, char *av[])
 			return (write_error(from_file, to_file, av[2]));
 	}
 	while (lenroad == 1024);
-	error = close_errorcheck(file_from);
-	error += close_errorcheck(file_to);
+	error = close_errorcheck(from_file);
+	error += close_errorcheck(to_file);
 	if (error != 0)
 		return (100);
 	return (0);
