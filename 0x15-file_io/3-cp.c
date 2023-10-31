@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 /**
- * close__errorcheck - closes a file descriptor and prints an error message
+ * close_errorcheck - closes a file descriptor and prints an error message
  * @fd: file descriptor to close
  *
  * Return: 0 on success, -1 on failure
@@ -97,16 +97,14 @@ int main(int ac, char *av[])
 		close_errorcheck(file_from);
 		return (99);
 	}
-	do 
-	{
+	do {
 		lenroad = read(file_from, buff, 1024);
 		if (lenroad == -1)
 			return (read_error(file_from, file_to, av[1]));
 		lenwidth = write(file_to, buff, lenroad);
 		if (lenwidth == -1 || lenwidth != lenroad)
 			return (write_error(file_from, file_to, av[2]));
-	}
-	while (lenroad == 1024);
+	} while (lenroad == 1024);
 	error = close_errorcheck(file_from);
 	error += close_errorcheck(file_to);
 	if (error != 0)
