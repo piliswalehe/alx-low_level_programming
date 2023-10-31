@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-/**close__errorcheck - closes a file descriptor and prints an error message
- *
+/**
+ * close__errorcheck - closes a file descriptor and prints an error message
  * @fd: file descriptor to close
  *
  * Return: 0 on success, -1 on failure
