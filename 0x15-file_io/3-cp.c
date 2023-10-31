@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -74,40 +75,40 @@ int read_error(int f_d1, int f_d2, char *filename)
 int main(int ac, char *av[])
 {
 	char buff[1024];
-	int lenroad, lenwidth, from_file, to_file, error;
+	int lenroad, lenwidth, file_from, file_to, error;
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (97);
 	}
-	from_file = open(av[1], O_RDONLY);
-	if (from_file == -1)
+	file_from = open(av[1], O_RDONLY);
+	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
 			av[1]);
 		return (98);
 	}
-	to_file = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
+	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (to_file == -1)
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		close_errorcheck(from_file);
+		close_errorcheck(file_from);
 		return (99);
 	}
 	do 
 	{
-		lenroad = read(from_file, buff[1024]);
+		lenroad = read(file_from, buff, 1024);
 		if (lenroad == -1)
-			return (read_error(from_file, to_file, av[1]));
-		lenwidth = write(to_file, buff, lenroad);
+			return (read_error(file_from, file_to, av[1]));
+		lenwidth = write(file_to, buff, lenroad);
 		if (lenwidth == -1 || lenwidth != lenroad)
-			return (write_error(from_file, to_file, av[2]));
+			return (write_error(file_from, file_to, av[2]));
 	}
 	while (lenroad == 1024);
-	error = close_errorcheck(from_file);
-	error += close_errorcheck(to_file);
+	error = close_errorcheck(file_from);
+	error += close_errorcheck(file_to);
 	if (error != 0)
 		return (100);
 	return (0);
