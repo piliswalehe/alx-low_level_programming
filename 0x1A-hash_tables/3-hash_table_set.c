@@ -29,7 +29,7 @@ hash_node_t *add_n_hash(hash_node_t **head, const char *key, const char *value)
 
 	if (new_node == NULL)
 		return (NULL);
-	
+
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 	new_node->next = *head;
